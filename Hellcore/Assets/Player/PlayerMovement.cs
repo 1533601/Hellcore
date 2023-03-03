@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
 
+    bool movingForward = false;
     bool isGrounded;
 
     void Start()
@@ -35,8 +36,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (transform.forward != null)
+        {
+            if (speed < runSpeed)
+            {
+                speed += playerSpeed;
+            }
+        }
 
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -46,7 +54,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        //if(Input.GetKey(runButton))
+        //if (movingForward)
+        //{
+
+        //}
+
         if(Input.GetButton(runButton))
         {
             if (speed < runSpeed)
