@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivityX: 500
-  mouseSensitivityY: 400
-  playerBody: {fileID: 5773726122427404550}
+  mouseSensitivityY: 300
+  mouseLook: {x: 0, y: 0}
 --- !u!1 &5773726122427404548
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 5773726122427404550}
   - component: {fileID: 5773726122427404551}
   - component: {fileID: 5773726122427404545}
+  - component: {fileID: 5000643826068431182}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -197,15 +198,113 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5773726122427404551}
-  playerSpeed: 0.025
-  runSpeed: 10
+  maxHealth: 150
+  playerHealth: 0
+  slideSpeed: 16
+  slideTimer: 0.5
+  timer: 0
+  playerSpeed: 0.05
+  runSpeed: 11
   walkSpeed: 7
-  speed: 12
-  gravity: -20
+  speed: 7
+  gravity: -50
   jumpHeight: 1.8
-  groundCheck: {fileID: 5773726121955071441}
   groundDistance: 0.4
+  groundCheck: {fileID: 5773726121955071441}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  runButton: Fire1
+--- !u!114 &5000643826068431182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5773726122427404548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3afb405b691436e488a92105656a9879, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c0f942f2-55c1-4b06-8640-c9a798f2b41c
+    m_ActionName: PlayerMovement/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5773726122427404545}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Movement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: daa5c9ad-1b63-443c-b294-5fb3a097874b
+    m_ActionName: PlayerMovement/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4854f8f4-eae4-4f7d-85b9-9c4b6f0a2c8b
+    m_ActionName: PlayerMovement/Run[/Keyboard/leftCtrl,/XInputControllerWindows/leftStickPress]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5773726122197967368}
+        m_TargetAssemblyTypeName: MouseMovement, Assembly-CSharp
+        m_MethodName: Look
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fac34d19-8f5a-44bc-bf1e-c9f5b1c44105
+    m_ActionName: PlayerMovement/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eb83d4a0-6f89-45c5-8284-cf3db75aec2b
+    m_ActionName: PlayerMovement/Crouch[/Keyboard/leftShift,/XInputControllerWindows/rightStickPress]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 17c76391-8b78-4f03-a078-177712e4a94c
+    m_ActionName: PlayerMovement/Melee[/Keyboard/c,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9078a099-b927-4cd8-a6b9-da9a1efd9575
+    m_ActionName: PlayerMovement/Interact[/Keyboard/f,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 11b27a39-97cd-44b6-8c6a-e1765bc4da52
+    m_ActionName: PlayerMovement/Reload[/Keyboard/r,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e200406-c049-47ae-ad67-5f7ce4dd5ae6
+    m_ActionName: PlayerMovement/Shoot[/Mouse/leftButton,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24ff1bcf-7690-4577-9715-4571dc8850bc
+    m_ActionName: PlayerMovement/Aim[/Mouse/rightButton,/XInputControllerWindows/leftTrigger]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerMovement
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
