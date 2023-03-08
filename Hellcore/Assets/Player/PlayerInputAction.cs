@@ -245,7 +245,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""id"": ""aaca596b-b8c3-42fe-a29e-1da210ec8b46"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone(min=0.125,max=0.95)"",
+                    ""processors"": ""StickDeadzone(min=0.25,max=0.75)"",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
